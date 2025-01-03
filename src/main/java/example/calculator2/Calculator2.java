@@ -7,7 +7,6 @@ public class Calculator2 {
 
     private int num1, num2;
     private char operator;
-    // 컬렉션 getter, setter 생성
     private Queue<Integer> queue = new LinkedList<>();
     // 생성자
     Calculator2() {
@@ -29,10 +28,11 @@ public class Calculator2 {
     }
 
     // 컬렉션 getter, setter
+    // 수정
     public Integer getQueue() {
         return queue.poll();
     }
-
+    // 삭제
     public void setQueue(int result) {
         queue.add(result);
     }
@@ -59,18 +59,17 @@ public class Calculator2 {
 
     // 사칙연산 구분하기
     int result(int num1, int num2, char operator){
+        int result = 0;
         switch (operator){
             case '+' :
-                return plus(num1 , num2);
+                result=  plus(num1 , num2);
             case '-' :
-                return minus(num1 , num2);
+                result=  minus(num1 , num2);
             case '*' :
-                return multiplication(num1 , num2);
+                result=  multiplication(num1 , num2);
             case '%' :
-                return division(num1, num2);
-            default:
-                System.out.println("잘못된 연산자를 입력하였습니다.");
-                return 0;
+                result=  division(num1, num2);
         }
+        return result;
     }
 }

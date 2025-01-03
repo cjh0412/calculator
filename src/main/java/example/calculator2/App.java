@@ -41,6 +41,11 @@ public class App {
                 break;
             };
 
+            if(operator != '+' && operator != '-' && operator != '*' && operator != '%'){
+                System.out.println("연산자는 +, -, *, % 중 하나를 입력해야합니다.");
+                break;
+            }
+
             result = calculator.result(num1, num2, operator);
             System.out.println("결과 : " + result);
             // 결과값 저장
