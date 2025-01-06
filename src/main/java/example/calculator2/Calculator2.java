@@ -1,13 +1,17 @@
 package example.calculator2;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 public class Calculator2 {
 
     private int num1, num2;
     private char operator;
-    private Queue<Integer> queue = new LinkedList<>();
+//    private Queue<Integer> queue = new LinkedList<>();
+    // list 생성
+    List<Integer> list = new ArrayList<>();
     // 생성자
     Calculator2() {
     }
@@ -23,18 +27,21 @@ public class Calculator2 {
         this.operator = operator;
     }
 
-    Calculator2(Queue<Integer> queue) {
-        this.queue = queue;
+    Calculator2(List<Integer> list){
+        this.list = list;
     }
 
     // 컬렉션 getter, setter
-    // 수정
-    public Integer getQueue() {
-        return queue.poll();
+    public Integer getList() {
+        return list.get(list.size()-1);
     }
-    // 삭제
-    public void setQueue(int result) {
-        queue.add(result);
+
+    public void setList(int result) {
+        list.add(result);
+    }
+
+    int delete(){
+        return list.remove(0);
     }
 
     // 메서드
@@ -62,14 +69,19 @@ public class Calculator2 {
         int result = 0;
         switch (operator){
             case '+' :
-                result=  plus(num1 , num2);
+                result = minus(num1 , num2);
+                break;
             case '-' :
-                result=  minus(num1 , num2);
+                result = minus(num1 , num2);
+                break;
             case '*' :
-                result=  multiplication(num1 , num2);
+                result = multiplication(num1 , num2);
+                break;
             case '%' :
-                result=  division(num1, num2);
+                result = division(num1 , num2);
+                break;
         }
         return result;
     }
+
 }
