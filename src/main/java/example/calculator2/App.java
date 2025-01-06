@@ -7,7 +7,7 @@ public class App {
 
         Calculator2 calculator = new Calculator2();
         Scanner sc = new Scanner(System.in);
-        int num1, num2, result;
+        int num1, num2 ;
         char operator ;
 
         while (true){
@@ -46,16 +46,16 @@ public class App {
                 break;
             }
 
-            result = calculator.result(num1, num2, operator);
-            System.out.println("결과 : " + result);
-            // 결과값 저장
-            calculator.setQueue(result);
+            // 사칙연산 진행 및 저장
+            calculator.setList(calculator.result(num1, num2, operator));
+            // 결과 값 불러오기
+            System.out.println("결과 : " + calculator.getList());
 
             // 삭제 여부 체크
-            System.out.println("저장된 결과값을 삭제하시겠습니까? (yes 입력시 가장 처음 저장된 결과값 제거)");
+            System.out.println("저장된 결과값을 삭제하시겠습니까? (yes 입력시 가장 처음 저장된 결과값인 제거)");
             String delYn = sc.next();
             if(delYn.equals("yes")){
-                System.out.println("삭제된 값 : " + calculator.getQueue());
+                System.out.println("삭제된 값 : " + calculator.delete());
             }
 
             // 종료 여부 체크
