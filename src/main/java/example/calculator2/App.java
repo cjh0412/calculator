@@ -36,14 +36,14 @@ public class App {
             }
             System.out.print("사칙연산 기호를 입력하세요: ");
             operator = sc.next().charAt(0);
-            if (num2 == 0 && operator == '%') {
+            if (num2 == 0 && operator == '/') {
                 System.out.println("나눗셈 연산시 분모(두번째 숫자)는 0을 입력할 수 없습니다.");
                 break;
             }
             ;
 
-            if (operator != '+' && operator != '-' && operator != '*' && operator != '%') {
-                System.out.println("연산자는 +, -, *, % 중 하나를 입력해야합니다.");
+            if (operator != '+' && operator != '-' && operator != '*' && operator != '/') {
+                System.out.println("연산자는 +, -, *, / 중 하나를 입력해야합니다.");
                 break;
             }
 
