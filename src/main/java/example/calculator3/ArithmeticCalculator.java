@@ -1,19 +1,23 @@
 package example.calculator3;
 
+import example.calculator3.exception.ErrorCode;
+import example.calculator3.exception.ErrorException;
+
 import java.util.ArrayList;
 import java.util.List;
+// 정규표현식을 다루는 패키지
+import java.util.regex.Pattern;
 
 public class ArithmeticCalculator <T extends Number> {
+    // 실수형 체크 정규표현식
+    private static final String NUMBER_REG = "^-?[0-9]+(\\.[0-9]+)?$";
+
     // input 값은 숫자 타입에 관계없이 저장
     private T num1 , num2;
     List<T> list = new ArrayList<>();
 
-
-    public void setNum1(T num1) {
+    public void setNum(T num1 , T num2) {
         this.num1 = num1;
-    }
-
-    public void setNum2(T num2) {
         this.num2 = num2;
     }
 
@@ -47,6 +51,22 @@ public class ArithmeticCalculator <T extends Number> {
 //               3. mapToDouble(Double::parseDouble) :  String -> double형태로 변환하는 것이기 때문에 오류 발생
 //        list.stream().filter(i -> i > getList()).mapToDouble(Double::parseDouble).toList();
         return list.stream().filter(i -> i.doubleValue() > getList().doubleValue()).toList();
+    }
+
+    // 숫자여부 체크(num1, num2)
+    public double parseNum(String num) throws Exception{
+        if (!Pattern.matches(NUMBER_REG, String.valueOf(num))) {
+            throw new ErrorException(ErrorCode.WRONG_TYPE);
+        }
+        return Double.parseDouble(num);
+    }
+
+    // 나눗셈 분모 체크
+    public ArithmeticCalculator chkDivide(String operatorIntput) throws Exception{
+        if ((getNum2().doubleValue() == 0) && operatorIntput == "/") {
+            throw new ErrorException(ErrorCode.WRONG_DIVISION);
+        }
+        return this;
     }
 
     // 사칙 연산시 제네릭 타입의 경우 연산 불가
