@@ -4,7 +4,6 @@ import example.calculator3.exception.ErrorCode;
 import example.calculator3.exception.ErrorException;
 
 import java.util.Arrays;
-import java.util.stream.Stream;
 
 // 연산자 구분
 public enum OperatorType {
@@ -31,7 +30,5 @@ public enum OperatorType {
                 .findAny()
                 .orElseThrow(() -> new ErrorException(ErrorCode.WRONG_OPERATOR));
     }
-
-
 }
 
