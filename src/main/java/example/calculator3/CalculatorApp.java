@@ -3,7 +3,7 @@ package example.calculator3;
 import java.util.Scanner;
 
 public class CalculatorApp {
-    public static boolean startApp() throws Exception{
+    public static boolean startApp() throws Exception {
 
         //제네릭 호출
         ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();

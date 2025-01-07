@@ -15,7 +15,7 @@ public enum OperatorType {
 
     private final String type;
 
-    OperatorType(String type){
+    OperatorType(String type) {
         this.type = type;
     }
 
@@ -24,7 +24,7 @@ public enum OperatorType {
     }
 
     // 연산 기호를 입력받아 type 매핑을 위한 메서드
-    public static OperatorType changeType(String type) throws Exception{
+    public static OperatorType changeType(String type) throws Exception {
         // values : OperatorType의 모든 값(+, -, *, /)
         return Arrays.stream(OperatorType.values())
                 .filter(operator -> operator.getType().equals(type))
