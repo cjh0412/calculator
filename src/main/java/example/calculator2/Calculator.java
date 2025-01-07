@@ -77,7 +77,7 @@ public class Calculator {
             case '*' :
                 result = multiplication(num1 , num2);
                 break;
-            case '%' :
+            case '/' :
                 result = division(num1 , num2);
                 break;
         }
