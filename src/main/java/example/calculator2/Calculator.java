@@ -5,7 +5,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
 
-public class Calculator2 {
+public class Calculator {
 
     private int num1, num2;
     private char operator;
@@ -13,21 +13,21 @@ public class Calculator2 {
     // list 생성
     List<Integer> list = new ArrayList<>();
     // 생성자
-    Calculator2() {
+    Calculator() {
     }
 
-    Calculator2(int num1, int num2) {
+    Calculator(int num1, int num2) {
         this.num1 = num1;
         this.num2 = num2;
     }
 
-    Calculator2(int num1, int num2, char operator) {
+    Calculator(int num1, int num2, char operator) {
         this.num1 = num1;
         this.num2 = num2;
         this.operator = operator;
     }
 
-    Calculator2(List<Integer> list){
+    Calculator(List<Integer> list){
         this.list = list;
     }
 
