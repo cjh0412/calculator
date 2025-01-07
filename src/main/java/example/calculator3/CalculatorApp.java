@@ -49,6 +49,7 @@ public class CalculatorApp {
         if(endYn.equals("exit")) {
             return false;
         }
+
         return true;
     }
 }

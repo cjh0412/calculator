@@ -55,11 +55,10 @@ public class ArithmeticCalculator <T extends Number> {
     }
 
     // 숫자여부 체크(num1, num2)
-    public Double parseNum(String num) throws Exception{
+    public double parseNum(String num) throws Exception{
         if (!Pattern.matches(NUMBER_REG, String.valueOf(num))) {
             throw new ErrorException(ErrorCode.WRONG_TYPE);
         }
-
         return Double.parseDouble(num);
     }
 
