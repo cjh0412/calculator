@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class CalculatorApp {
     public static boolean startApp() throws Exception{
-
         //제네릭 호출
         ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
         Scanner sc = new Scanner(System.in);
@@ -48,7 +47,6 @@ public class CalculatorApp {
         if (endYn.equals("exit")) {
             return false;
         }
-
         return true;
     }
 }

@@ -54,19 +54,19 @@ public class ArithmeticCalculator <T extends Number> {
     }
 
     // 숫자여부 체크(num1, num2)
-    public double parseNum(String num) throws Exception{
+    public Double parseNum(String num) throws Exception{
         if (!Pattern.matches(NUMBER_REG, String.valueOf(num))) {
             throw new ErrorException(ErrorCode.WRONG_TYPE);
         }
+
         return Double.parseDouble(num);
     }
 
     // 나눗셈 분모 체크
-    public ArithmeticCalculator chkDivide(String operatorIntput) throws Exception{
+    public void chkDivide(String operatorIntput) throws Exception{
         if ((getNum2().doubleValue() == 0) && operatorIntput == "/") {
             throw new ErrorException(ErrorCode.WRONG_DIVISION);
         }
-        return this;
     }
 
     // 사칙 연산시 제네릭 타입의 경우 연산 불가
