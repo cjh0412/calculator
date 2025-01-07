@@ -5,6 +5,7 @@ import example.calculator3.exception.ErrorException;
 
 import java.util.ArrayList;
 import java.util.List;
+
 // 정규표현식을 다루는 패키지
 import java.util.regex.Pattern;
 
@@ -63,7 +64,7 @@ public class ArithmeticCalculator <T extends Number> {
 
     // 나눗셈 분모 체크
     public void chkDivide(String operatorIntput) throws Exception{
-        if ((getNum2().doubleValue() == 0) && operatorIntput == "/") {
+        if ((getNum2().doubleValue() == 0) && operatorIntput.equals("/")) {
             throw new ErrorException(ErrorCode.WRONG_DIVISION);
         }
     }

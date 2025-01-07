@@ -3,10 +3,11 @@ package example.calculator3;
 import java.util.Scanner;
 
 public class CalculatorApp {
-    public static boolean startApp() throws Exception{
+    //제네릭 호출
+    // main에서 startApp을 호출시마다 calculator 재할당하지 않도록, static final 추가
+    static final ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
 
-        //제네릭 호출
-        ArithmeticCalculator<Double> calculator = new ArithmeticCalculator<>();
+    public static boolean startApp() throws Exception{
         Scanner sc = new Scanner(System.in);
         String operatorInput;
 
@@ -45,7 +46,7 @@ public class CalculatorApp {
         System.out.println("더 계산하시겠습니까? (exit 입력 시 종료)");
         String endYn = sc.next();
 
-        if (endYn.equals("exit")) {
+        if(endYn.equals("exit")) {
             return false;
         }
 
