@@ -69,7 +69,7 @@ public class Calculator {
         int result = 0;
         switch (operator){
             case '+' :
-                result = minus(num1 , num2);
+                result = plus(num1 , num2);
                 break;
             case '-' :
                 result = minus(num1 , num2);
