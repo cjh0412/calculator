@@ -32,13 +32,13 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
     // 가장 마지막에 저장된 값 출력
-    void getLastValue() {
+    public void getLastValue() {
         System.out.print("결과 : ");
         isInteger(list.get(list.size() - 1));
     }
 
     // 삭제
-    void delete() {
+    public void delete() {
         System.out.print("삭제된 값 : ");
         isInteger(list.remove(0));
     }
@@ -97,7 +97,7 @@ public class ArithmeticCalculator<T extends Number> {
 
     // 사칙 연산시 제네릭 타입의 경우 연산 불가
     // double형으로 변환 뒤 연산
-    double result(T num1, T num2, OperatorType operator) {
+    public double result(T num1, T num2, OperatorType operator) {
         double result = 0;
         switch (operator) {
             case PLUS:
@@ -117,12 +117,12 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
     // 소수점 2자리수 이상은 반올림한다
-    double roundValue(double result) {
+    public double roundValue(double result) {
         return (double) Math.round(result * 100) / 100;
     }
 
     // 정수여부 체크후 결과값 출력
-    void printValue(boolean integerYn, T result){
+    public void printValue(boolean integerYn, T result){
         if(integerYn){
             System.out.println(result.intValue());;
         }else {
@@ -132,7 +132,7 @@ public class ArithmeticCalculator<T extends Number> {
 
     // 리스트 출력
     // <? extends Number> intList, doubleList 등 다양한 리스트를 하나의 메서드에서 처리하고 싶을때 사용
-    void printList(List<? extends Number> resultList){
+    public void printList(List<? extends Number> resultList){
         if(resultList.isEmpty()){
             System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과는 존재하지 않습니다.");
         }
