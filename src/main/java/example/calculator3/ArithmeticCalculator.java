@@ -57,14 +57,14 @@ public class ArithmeticCalculator<T extends Number> {
 
 // return list.stream().filter(i -> i.doubleValue() > compareValue.doubleValue()).toList();
         printList(
-                (List<Number>) list.stream()
+                list.stream()
                 .filter(i -> i.doubleValue() > compareValue.doubleValue()) // 입력값과 비교
-                .map(i -> {
+                .map(i -> { // 정수 실수 구분
                     if(i.doubleValue() == i.intValue()){
                         return i.intValue();
                     }else {
                         return i.doubleValue() ;
-                    } // 정수 실수 구분
+                    }
                 })
                 .toList()
         );
@@ -131,7 +131,8 @@ public class ArithmeticCalculator<T extends Number> {
     }
 
     // 리스트 출력
-    void printList(List<Number> resultList){
+    // <? extends Number> intList, doubleList 등 다양한 리스트를 하나의 메서드에서 처리하고 싶을때 사용
+    void printList(List<? extends Number> resultList){
         if(resultList.isEmpty()){
             System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과는 존재하지 않습니다.");
         }
