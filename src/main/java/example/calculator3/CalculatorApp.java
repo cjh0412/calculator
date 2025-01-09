@@ -33,32 +33,18 @@ public class CalculatorApp {
         calculator.setList(calculator.result(calculator.getNum1(), calculator.getNum2(), operator));
 
         // 결과 값 불러오기
-
-        // 정수 실수 체크
-        System.out.print("결과 : ");
-        // 결과값이 정수인 경우
-        if(calculator.isInteger(calculator.getLastValue())){
-            System.out.println(calculator.getLastValue().intValue());
-        // 결과값이 실수인 경우
-        }else{
-            System.out.println(calculator.getLastValue());
-        }
+        calculator.getLastValue();
 
         // 특정값 입력
         System.out.print("특정 값을 입력하세요 : ");
         double comPareValue = calculator.isNumber(sc.next());
-
-        if(calculator.getList(comPareValue).isEmpty()){
-            System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과는 존재하지 않습니다.");
-        }else {
-            System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과: " + calculator.getList(comPareValue));
-        }
+        calculator.getList(comPareValue);
 
         // 삭제 여부 체크
         System.out.println("저장된 결과값을 삭제하시겠습니까? (yes 입력시 가장 처음 저장된 결과값인 제거)");
         String delYn = sc.next();
         if (delYn.equals("yes")) {
-            System.out.println("삭제된 값 : " + calculator.delete());
+            calculator.delete();
         }
 
         // 종료 여부 체크
