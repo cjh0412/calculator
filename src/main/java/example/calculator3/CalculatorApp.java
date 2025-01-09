@@ -1,5 +1,6 @@
 package example.calculator3;
 
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class CalculatorApp {
@@ -12,10 +13,10 @@ public class CalculatorApp {
         String operatorInput;
 
         System.out.print("첫 번째 숫자를 입력하세요: ");
-        Double num1 = calculator.parseNum(sc.nextLine());
+        double num1 = calculator.isNumber(sc.nextLine());
 
         System.out.print("두 번째 숫자를 입력하세요: ");
-        Double num2 = calculator.parseNum(sc.nextLine());
+        double num2 = calculator.isNumber(sc.nextLine());
 
         // 연산 숫자 저장
         calculator.setNum(num1, num2);
@@ -43,10 +44,14 @@ public class CalculatorApp {
             System.out.println(calculator.getLastValue());
         }
 
-        if(calculator.getList().isEmpty()){
+        // 특정값 입력
+        System.out.print("특정 값을 입력하세요 : ");
+        double comPareValue = calculator.isNumber(sc.next());
+
+        if(calculator.getList(comPareValue).isEmpty()){
             System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과는 존재하지 않습니다.");
         }else {
-            System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과: " + calculator.getList());
+            System.out.println("해당 연산 값 보다 더 큰 저장된 연산 결과: " + calculator.getList(comPareValue));
         }
 
         // 삭제 여부 체크
